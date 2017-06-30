@@ -11,5 +11,12 @@ App2: Top10Downloader
   1. What is asyncTask and how to use it  
   2. How to estabilish a HTTP connection and fetch data from the connection
   3. How to parse XML file
-  4. How to use ListView with customed ArrayAdapter
+  4. How to use ListView with customed ArrayAdapter  
+
+App3: Youtube Player
+- The main purpose of developing this app is to learn and master:  
+  1. Create view dynamically  
+  2. Multiple activity interaction
+  3. Intent
+  
   

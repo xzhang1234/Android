@@ -5,17 +5,21 @@ import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity implements GetFlickrJsonData.OnDataAvailable {
     private static final String TAG = "MainActivity";
 
+    private FlickrRecyclerViewAdapter flickrRecyclerViewAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +37,12 @@ public class MainActivity extends AppCompatActivity implements GetFlickrJsonData
                         .setAction("Action", null).show();
             }
         });
+
+        RecyclerView recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
+        flickrRecyclerViewAdapter = new FlickrRecyclerViewAdapter(new ArrayList<Photo>(), this);
+
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        recyclerView.setAdapter(flickrRecyclerViewAdapter);
 
         Log.d(TAG, "onCreate: ends");
     }
@@ -73,11 +83,13 @@ public class MainActivity extends AppCompatActivity implements GetFlickrJsonData
 
     @Override
     public void onDataAvailable(List<Photo> data, DownloadStatus status) {
+        Log.d(TAG, "onDataAvailable: starts");
         if (status == DownloadStatus.OK) {
-            Log.d(TAG, "onDataAvailable: data is " + data);
+            flickrRecyclerViewAdapter.loadNewData(data);
         } else {
             Log.e(TAG, "onDataAvailable failed with status " + status);
         }
+        Log.d(TAG, "onDataAvailable: ends");
     }
 
 }

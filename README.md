@@ -19,7 +19,7 @@ App3: Flickr Browser
 - The main purpose of developing this app is to learn and master:  
   1. Async task
   2. JSON parser
-  3. RecyclerView
+  3. RecyclerView with Gesture detector
   
   
  

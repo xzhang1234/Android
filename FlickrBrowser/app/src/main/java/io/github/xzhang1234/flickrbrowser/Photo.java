@@ -1,10 +1,12 @@
 package io.github.xzhang1234.flickrbrowser;
 
+import java.io.Serializable;
+
 /**
  * Created by xiaoyun on 7/2/17.
  */
 
-public class Photo {
+public class Photo implements Serializable {
     private String title;
     private String author;
     private String authorId;

@@ -1,5 +1,6 @@
 package io.github.xzhang1234.flickrbrowser;
 
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -98,7 +99,10 @@ public class MainActivity extends AppCompatActivity implements GetFlickrJsonData
     @Override
     public void onItemClick(View view, int position) {
         Log.d(TAG, "onItemClick: starts");
-        Toast.makeText(MainActivity.this, "Normal tap at position " + position, Toast.LENGTH_SHORT).show();
+        //Toast.makeText(MainActivity.this, "Normal tap at position " + position, Toast.LENGTH_SHORT).show();
+        Intent intent = new Intent(this, PhotoDetailsActivity.class);
+        intent.putExtra("PHOTO", flickrRecyclerViewAdapter.getPhoto(position));
+        startActivity(intent);
     }
 
     @Override

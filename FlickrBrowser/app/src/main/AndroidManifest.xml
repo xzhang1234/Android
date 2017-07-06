@@ -33,7 +33,12 @@
         <activity
             android:name=".PhotoDetailsActivity"
             android:label="@string/title_activity_photo_details"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="io.github.xzhang1234.flickrbrowser.MainActivity" />
+        </activity>
     </application>
 
 </manifest>

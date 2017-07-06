@@ -38,6 +38,7 @@ class FlickrRecyclerViewAdapter extends RecyclerView.Adapter<FlickrRecyclerViewA
 
     @Override
     public void onBindViewHolder(FlickrImageViewHolder holder, int position) {
+        Log.d(TAG, "onBindViewHolder: starts");
         Photo photo = getPhoto(position);
         Picasso.with(context).load(photo.getImage())
                 .error(R.drawable.ic_add_a_photo_black_48dp)

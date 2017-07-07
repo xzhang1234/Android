@@ -58,9 +58,9 @@ public class SearchActivity extends AppCompatActivity {
                 //GetFlickrJsonData getFlickrJsonData = new GetFlickrJsonData("https://api.flickr.com/services/feeds/photos_public.gne", "en-us", true, );
                 //getFlickrJsonData.execute(query);
 
-                //Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-                //intent.putExtra("QUERY_TAG", query);
-                //startActivity(intent);
+                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                intent.putExtra("QUERY_TAG", query);
+                startActivity(intent);
 
                 searchView.clearFocus();
                 finish();

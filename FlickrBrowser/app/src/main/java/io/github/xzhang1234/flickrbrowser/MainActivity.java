@@ -13,7 +13,11 @@ import android.util.Log;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
+
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -55,8 +59,16 @@ public class MainActivity extends AppCompatActivity implements GetFlickrJsonData
     protected void onResume() {
         Log.d(TAG, "onResume starts");
         super.onResume();
+
+        Intent intent = getIntent();
+        String query = (String) intent.getSerializableExtra("QUERY_TAG");
+
         GetFlickrJsonData getFlickrJsonData = new GetFlickrJsonData("https://api.flickr.com/services/feeds/photos_public.gne", "en-us", true, this);
-        getFlickrJsonData.execute("android,nougat");
+        if(query != null) {
+            getFlickrJsonData.execute(query);
+        } else {
+            getFlickrJsonData.execute("flower");
+        }
 
         Log.d(TAG, "onResume ends");
     }

@@ -61,6 +61,7 @@ public class GetFlickrJsonData extends AsyncTask<String, Void, List<Photo>> impl
         Log.d(TAG, "doInBackground starts");
         String destinationUri = createUri(params[0], language, matchAll);
 
+        Log.d(TAG, destinationUri);
         GetRawData getRawData = new GetRawData(this);
         getRawData.runInSameThread(destinationUri);
         Log.d(TAG, "doInBackground ends");

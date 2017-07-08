@@ -18,9 +18,8 @@ App2: Top10Downloader
 App3: Flickr Browser  
 Demo:
 <img src="https://github.com/xzhang1234/Android/blob/master/Demo/Screenshot_1499552518.png" width="200"/>
-![alt text](https://github.com/xzhang1234/Android/blob/master/Demo/Screenshot_1499552930.png "Logo Title Text 1")
-![alt text](https://github.com/xzhang1234/Android/blob/master/Demo/Screenshot_1499552537.png "Logo Title Text 1")
-
+<img src="https://github.com/xzhang1234/Android/blob/master/Demo/Screenshot_1499552930.png" width="200"/>
+<img src="https://github.com/xzhang1234/Android/blob/master/Demo/Screenshot_1499552537.png" width="200"/>
 
 - The main purpose of developing this app is to learn and master:  
   1. Async task

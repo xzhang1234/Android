@@ -8,6 +8,7 @@ App1: Calculator
   3. How to implement, add, use onClickListener  
   
 App2: Top10Downloader  
+<img src="https://github.com/xzhang1234/Android/blob/master/Demo/Screenshot_1499553826.png" width="200"/>
 - An app which displays the Top 10 downloaded movies in Apple store. It downloads an xml file from a link provided by Apple, then parses the xml file to get the name, artist and other attributes of Top 10 downloaded movies, finally displays the Top 10 downloaded movies in a ListView. 
 - The main purpose of developing this app is to learn and master:  
   1. What is asyncTask and how to use it  
@@ -15,9 +16,7 @@ App2: Top10Downloader
   3. How to parse XML file
   4. How to use ListView with viewHolder design pattern  
   
-App3: Flickr Browser  
-
-Demo:  
+App3: Flickr Browser   
 <img src="https://github.com/xzhang1234/Android/blob/master/Demo/Screenshot_1499552518.png" width="200"/>
 <img src="https://github.com/xzhang1234/Android/blob/master/Demo/Screenshot_1499552930.png" width="200"/>
 <img src="https://github.com/xzhang1234/Android/blob/master/Demo/Screenshot_1499552537.png" width="200"/>

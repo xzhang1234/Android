@@ -30,19 +30,19 @@ App3: Flickr Browser
   5. How to use SearchView
   
 - Reference
-1. Difference between Service, Async Task and Thread
-https://stackoverflow.com/questions/3264383/difference-between-service-async-task-thread 
-2. How to choose context?
+1. Difference between Service, Async Task and Thread  
+https://stackoverflow.com/questions/3264383/difference-between-service-async-task-thread   
+2. How to choose context?  
 https://stackoverflow.com/questions/1026973/whats-the-difference-between-the-various-methods-to-get-a-context
 3. RecyclerView vs ListView with ViewHolder design pattern  
 https://stackoverflow.com/questions/28525112/android-recyclerview-vs-listview-with-viewholder
-4. When and where to save activity state? 
+4. When and where to save activity state?  
 https://stackoverflow.com/questions/151777/saving-android-activity-state-using-save-instance-state
-5. How to save Arraylist to SharedPreference?
+5. How to save Arraylist to SharedPreference?  
 https://stackoverflow.com/questions/7057845/save-arraylist-to-sharedpreferences
-6. How to restore RecyclerView state?
+6. How to restore RecyclerView state?  
 https://stackoverflow.com/questions/28236390/recyclerview-store-restore-state-between-activities
-7. ActionBar vs ToolBar
+7. ActionBar vs ToolBar  
 https://stackoverflow.com/questions/27665018/what-is-the-difference-between-action-bar-and-newly-introduced-toolbar
 
 

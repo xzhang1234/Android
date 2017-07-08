@@ -12,37 +12,35 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".MainActivity"
-            android:label="@string/app_name"
-            android:theme="@style/AppTheme.NoActionBar">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        <activity
-            android:name=".SearchActivity"
-            android:label="@string/title_activity_search"
-            android:parentActivityName=".MainActivity"
+            android:name=".DisplaySearchResultActivity"
+            android:label="@string/title_activity_display_search_result"
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="io.github.xzhang1234.flickrbrowser.MainActivity" />
-            <meta-data android:name="android.app.searchable"
-                android:resource="@xml/searchable"/>
-            <intent-filter>
-                <action android:name="android.intent.action.SEARCH"/>
-            </intent-filter>
         </activity>
         <activity
             android:name=".PhotoDetailsActivity"
             android:label="@string/title_activity_photo_details"
-            android:parentActivityName=".MainActivity"
+            android:parentActivityName=".DisplaySearchResultActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="io.github.xzhang1234.flickrbrowser.MainActivity" />
+                android:value="io.github.xzhang1234.flickrbrowser.DisplaySearchResultActivity" />
+        </activity>
+        <activity
+            android:name=".MainActivity"
+            android:label="@string/app_name"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="stateUnchanged|adjustResize">
+            <meta-data
+                android:name="android.app.searchable"
+                android:resource="@xml/searchable" />
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+                <action android:name="android.intent.action.SEARCH" />
+            </intent-filter>
         </activity>
     </application>
 

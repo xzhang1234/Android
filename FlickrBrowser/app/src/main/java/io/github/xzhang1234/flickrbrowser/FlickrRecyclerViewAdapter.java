@@ -39,18 +39,23 @@ class FlickrRecyclerViewAdapter extends RecyclerView.Adapter<FlickrRecyclerViewA
     @Override
     public void onBindViewHolder(FlickrImageViewHolder holder, int position) {
         Log.d(TAG, "onBindViewHolder: starts");
-        Photo photo = getPhoto(position);
-        Picasso.with(context).load(photo.getImage())
-                .error(R.drawable.ic_add_a_photo_black_48dp)
-                .placeholder(R.drawable.ic_add_a_photo_black_48dp)
-                .into(holder.thumbnail);
+        if (photoList == null || photoList.isEmpty()) {
+            holder.thumbnail.setImageResource(R.drawable.ic_add_a_photo_black_48dp);
+            holder.title.setText("No photo match your search, please try another keyword");
+        } else {
+            Photo photo = getPhoto(position);
+            Picasso.with(context).load(photo.getImage())
+                    .error(R.drawable.ic_add_a_photo_black_48dp)
+                    .placeholder(R.drawable.ic_add_a_photo_black_48dp)
+                    .into(holder.thumbnail);
 
-        holder.title.setText(photo.getTitle());
+            holder.title.setText(photo.getTitle());
+        }
     }
 
     @Override
     public int getItemCount() {
-        return ((photoList != null) && (photoList.size() != 0) ? photoList.size() : 0 );
+        return ((photoList != null) && (photoList.size() != 0) ? photoList.size() : 1);
     }
 
     void loadNewData(List<Photo> newPhotos) {

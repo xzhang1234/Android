@@ -2,5 +2,7 @@
     <string name="app_name">Flickr Browser</string>
     <string name="action_settings">Settings</string>
     <string name="title_activity_search">SearchActivity</string>
-    <string name="title_activity_photo_details">PhotoDetailsActivity</string>
+    <string name="title_activity_photo_details">Photo Details</string>
+    <string name="title_activity_display_search_result">Search Results</string>
+    <string name="title_activity_main2">MainActivity</string>
 </resources>

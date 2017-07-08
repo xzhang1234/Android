@@ -5,24 +5,22 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="io.github.xzhang1234.flickrbrowser.MainActivity"
-    tools:showIn="@layout/activity_main">
+    tools:context="io.github.xzhang1234.flickrbrowser.DisplaySearchResultActivity"
+    tools:showIn="@layout/activity_display_search_result">
 
-    <SearchView
-        android:id="@+id/input_tags"
-        android:layout_width="368dp"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginRight="16dp"
-        android:layout_marginTop="16dp"
-        android:visibility="visible"
-        app:defaultQueryHint="Photo Tags"
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recycler_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="8dp"
+        android:scrollbars="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.375"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:queryHint="Photo Tags" />
-
+        app:layout_constraintVertical_bias="1.0" />
 </android.support.constraint.ConstraintLayout>

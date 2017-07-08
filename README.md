@@ -29,7 +29,7 @@ App3: Flickr Browser
   4. Interaction of activities
   5. How to use SearchView
   
-- Reference
+Reference
 1. Difference between Service, Async Task and Thread  
 https://stackoverflow.com/questions/3264383/difference-between-service-async-task-thread   
 2. How to choose context?  

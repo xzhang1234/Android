@@ -16,6 +16,12 @@ App2: Top10Downloader
   4. How to use ListView with viewHolder design pattern  
   
 App3: Flickr Browser  
+Demo:
+![alt text](https://github.com/xzhang1234/Android/blob/master/Demo/Screenshot_1499552518.png "Logo Title Text 1")
+![alt text](https://github.com/xzhang1234/Android/blob/master/Demo/Screenshot_1499552930.png "Logo Title Text 1")
+![alt text](https://github.com/xzhang1234/Android/blob/master/Demo/Screenshot_1499552537.png "Logo Title Text 1")
+
+
 - The main purpose of developing this app is to learn and master:  
   1. Async task
   2. JSON parser

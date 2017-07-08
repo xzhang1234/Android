@@ -16,16 +16,19 @@ App2: Top10Downloader
   4. How to use ListView with viewHolder design pattern  
   
 App3: Flickr Browser  
-Demo:
+
+Demo:  
 <img src="https://github.com/xzhang1234/Android/blob/master/Demo/Screenshot_1499552518.png" width="200"/>
 <img src="https://github.com/xzhang1234/Android/blob/master/Demo/Screenshot_1499552930.png" width="200"/>
 <img src="https://github.com/xzhang1234/Android/blob/master/Demo/Screenshot_1499552537.png" width="200"/>
 
 - The main purpose of developing this app is to learn and master:  
-  1. Async task
+  1. How to use Async task to establish http connection
   2. JSON parser
-  3. RecyclerView with Picasso and Gesture detector
+  3. How to use RecyclerView
+  4. How to save RecyclerView's state with SharedPreference
   4. Interaction of activities
+  5. How to use SearchView
   
   
  

@@ -19,6 +19,19 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".AddEditActivity"
+            android:label="@string/title_activity_add_edit"
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="io.github.xzhang1234.tasktimer.MainActivity" />
+        </activity>
+        <provider
+            android:name=".AppProvider"
+            android:authorities="io.github.xzhang1234.tasktimer.provider"
+            android:exported="false"/>
     </application>
 
 </manifest>

@@ -1,5 +1,6 @@
 package io.github.xzhang1234.tasktimer;
 
+import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -16,14 +17,16 @@ import android.view.ViewGroup;
 
 import java.security.InvalidParameterException;
 
+import static android.content.Context.MODE_PRIVATE;
+
 /**
  * A placeholder fragment containing a simple view.
  */
 public class MainActivityFragment extends Fragment implements LoaderManager.LoaderCallbacks<Cursor> {
     private static final String TAG = "MainActivityFragment";
 
-    public static final int LOADER_ID = 0;
     private CursorRecyclerViewAdapter mAdapter;
+    private AppLoader mAppLoader;
 
     public MainActivityFragment() {
         Log.d(TAG, "MainActivityFragment: starts");
@@ -33,7 +36,6 @@ public class MainActivityFragment extends Fragment implements LoaderManager.Load
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         Log.d(TAG, "onActivityCreated: starts");
         super.onActivityCreated(savedInstanceState);
-        getLoaderManager().initLoader(LOADER_ID, null, this);
     }
 
     @Override
@@ -46,6 +48,12 @@ public class MainActivityFragment extends Fragment implements LoaderManager.Load
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         mAdapter = new CursorRecyclerViewAdapter(null, (CursorRecyclerViewAdapter.OnTaskClickListener) getActivity());
         recyclerView.setAdapter(mAdapter);
+        recyclerView.setHasFixedSize(true);
+
+        mAppLoader = new AppLoader(mAdapter, getActivity());
+        SharedPreferences pref = getContext().getSharedPreferences("Pref", MODE_PRIVATE);
+        int order = pref.getInt("ORDER", AppLoader.MAIN_ACTIVITY_SORT_BY_CREATING_TIME_LOADER_ID);
+        getLoaderManager().initLoader(order, null, this);
 
         Log.d(TAG, "onCreateView: returning");
         return view;
@@ -54,37 +62,17 @@ public class MainActivityFragment extends Fragment implements LoaderManager.Load
 
     @Override
     public Loader<Cursor> onCreateLoader(int id, Bundle args) {
-        Log.d(TAG, "onCreateLoader: starts with id " + id);
-        String[] projection = {TasksContract.Columns._ID, TasksContract.Columns.TASKS_NAME,
-                TasksContract.Columns.TASKS_DESCRIPTION, TasksContract.Columns.TASKS_SORTORDER};
-        String sortOrder = TasksContract.Columns.TASKS_SORTORDER + "," + TasksContract.Columns.TASKS_NAME;
-
-        switch(id) {
-            case LOADER_ID:
-                return new CursorLoader(
-                        getActivity(),
-                        TasksContract.CONTENT_URI,
-                        projection,
-                        null,
-                        null,
-                        sortOrder);
-            default:
-                throw new InvalidParameterException(TAG + ".onCreateLoader called with invalid loader id" + id);
-        }
+        return mAppLoader.onCreateLoader(id, args);
     }
 
     @Override
     public void onLoadFinished(Loader<Cursor> loader, Cursor data) {
-        Log.d(TAG, "Entering onLoadFinished");
-        mAdapter.swapCursor(data);
-        int count = mAdapter.getItemCount();
-        Log.d(TAG, "onLoadFinished: count is " + count);
+        mAppLoader.onLoadFinished(loader, data);
     }
 
     @Override
     public void onLoaderReset(Loader<Cursor> loader) {
-        Log.d(TAG, "onLoaderReset: starts");
-        mAdapter.swapCursor(null);
+        mAppLoader.onLoaderReset(loader);
     }
 
 }

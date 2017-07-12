@@ -1,18 +1,20 @@
 package io.github.xzhang1234.tasktimer;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.database.Cursor;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v4.app.LoaderManager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
-import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+
+
 
 public class MainActivity extends AppCompatActivity implements CursorRecyclerViewAdapter.OnTaskClickListener,
         AddEditActivityFragment.OnSaveClicked, AppDialog.DialogEvents {
@@ -20,8 +22,7 @@ public class MainActivity extends AppCompatActivity implements CursorRecyclerVie
 
     private boolean mTwoPane = false;
     private static final String ADD_EDIT_FRAGMENT = "AddEditFragment";
-    public static final int DELETE_DIALOG_ID = 1;
-
+    private static final int DELETE_DIALOG_ID = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,16 +53,35 @@ public class MainActivity extends AppCompatActivity implements CursorRecyclerVie
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
 
+        SharedPreferences.Editor editor;
+
         //noinspection SimplifiableIfStatement
         switch(id) {
             case R.id.menumain_addTask:
                 taskEditRequest(null);
                 break;
-            case R.id.menumain_showDurations:
+            case R.id.menumain_showFinished:
                 break;
-            case R.id.menumain_settings:
+            case R.id.menumain_sort_by_creating_time:
+                editor = getApplicationContext().getSharedPreferences("Pref", MODE_PRIVATE).edit();
+                editor.putInt("ORDER", AppLoader.MAIN_ACTIVITY_SORT_BY_CREATING_TIME_LOADER_ID);
+                editor.commit();
+                getSupportLoaderManager().initLoader(AppLoader.MAIN_ACTIVITY_SORT_BY_CREATING_TIME_LOADER_ID, null,
+                        (LoaderManager.LoaderCallbacks<Cursor>) getSupportFragmentManager().findFragmentById(R.id.fragment));
                 break;
-            case R.id.menumain_showAbout:
+            case R.id.menumain_sort_by_name:
+                editor = getApplicationContext().getSharedPreferences("Pref", MODE_PRIVATE).edit();
+                editor.putInt("ORDER", AppLoader.MAIN_ACTIVITY_SORT_BY_NAME_LOADER_ID);
+                editor.commit();
+                getSupportLoaderManager().initLoader(AppLoader.MAIN_ACTIVITY_SORT_BY_NAME_LOADER_ID, null,
+                        (LoaderManager.LoaderCallbacks<Cursor>) getSupportFragmentManager().findFragmentById(R.id.fragment));
+                break;
+            case R.id.menumain_sort_by_priority:
+                editor = getApplicationContext().getSharedPreferences("Pref", MODE_PRIVATE).edit();
+                editor.putInt("ORDER", AppLoader.MAIN_ACTIVITY_SORT_BY_PRIORITY_LOADER_ID);
+                editor.commit();
+                getSupportLoaderManager().initLoader(AppLoader.MAIN_ACTIVITY_SORT_BY_PRIORITY_LOADER_ID, null,
+                        (LoaderManager.LoaderCallbacks<Cursor>) getSupportFragmentManager().findFragmentById(R.id.fragment));
                 break;
             case R.id.menumain_generate:
                 break;
@@ -148,4 +168,5 @@ public class MainActivity extends AppCompatActivity implements CursorRecyclerVie
     public void onDialogCancelled(int dialogId) {
         Log.d(TAG, "onDialogCancelled: called");
     }
+
 }

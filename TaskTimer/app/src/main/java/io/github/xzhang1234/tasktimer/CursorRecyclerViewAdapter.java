@@ -6,6 +6,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.CheckBox;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
@@ -44,9 +45,12 @@ class CursorRecyclerViewAdapter extends RecyclerView.Adapter<CursorRecyclerViewA
         if((mCursor == null) || (mCursor.getCount() == 0)) {
             Log.d(TAG, "onBindViewHolder: providing instructions");
             holder.name.setText(R.string.instructions_heading);
+            holder.priority.setVisibility(View.GONE);
             holder.description.setText(R.string.instructions);
             holder.editButton.setVisibility(View.GONE);
             holder.deleteButton.setVisibility(View.GONE);
+            holder.checkBox.setVisibility(View.GONE);
+
         } else {
             if(!mCursor.moveToPosition(position)) {
                 throw new IllegalStateException("Couldn't move cursor to position " + position);
@@ -58,9 +62,12 @@ class CursorRecyclerViewAdapter extends RecyclerView.Adapter<CursorRecyclerViewA
                     mCursor.getInt(mCursor.getColumnIndex(TasksContract.Columns.TASKS_SORTORDER)));
 
             holder.name.setText(task.getName());
+            holder.priority.setVisibility(View.VISIBLE);
+            holder.priority.setText(String.valueOf(task.getSortOrder()));
             holder.description.setText(task.getDescription());
             holder.editButton.setVisibility(View.VISIBLE);
             holder.deleteButton.setVisibility(View.VISIBLE);
+            holder.checkBox.setVisibility(View.VISIBLE);
 
             View.OnClickListener buttonListener = new View.OnClickListener() {
                 @Override
@@ -76,6 +83,7 @@ class CursorRecyclerViewAdapter extends RecyclerView.Adapter<CursorRecyclerViewA
                                 mListener.onDeleteClick(task);
                             }
                             break;
+                        
                         default:
                             Log.d(TAG, "onClick: found unexpected button id");
                     }
@@ -130,18 +138,22 @@ class CursorRecyclerViewAdapter extends RecyclerView.Adapter<CursorRecyclerViewA
         private static final String TAG = "TaskViewHolder";
 
         TextView name = null;
+        TextView priority = null;
         TextView description = null;
         ImageButton editButton = null;
         ImageButton deleteButton = null;
+        CheckBox checkBox = null;
 
         public TaskViewHolder(View itemView) {
             super(itemView);
             Log.d(TAG, "TaskViewHolder: starts");
 
             this.name = (TextView) itemView.findViewById(R.id.tli_name);
+            this.priority = (TextView) itemView.findViewById(R.id.tli_priority);
             this.description = (TextView) itemView.findViewById(R.id.tli_description);
             this.editButton = (ImageButton) itemView.findViewById(R.id.tli_edit);
             this.deleteButton = (ImageButton) itemView.findViewById(R.id.tli_delete);
+            this.checkBox = (CheckBox) itemView.findViewById(R.id.tli_finished);
         }
     }
 

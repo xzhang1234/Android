@@ -56,7 +56,6 @@ public class AddEditActivityFragment extends Fragment {
         Log.d(TAG, "onDetach: starts");
         super.onDetach();
         mSaveListener = null;
-
     }
 
     @Override
@@ -144,6 +143,8 @@ public class AddEditActivityFragment extends Fragment {
 
         return view;
     }
+
+
 }
 
 

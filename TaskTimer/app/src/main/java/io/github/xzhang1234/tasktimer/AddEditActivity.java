@@ -41,4 +41,5 @@ public class AddEditActivity extends AppCompatActivity implements AddEditActivit
     public void onSaveClicked() {
         finish();
     }
+
 }

@@ -13,12 +13,14 @@ class Task implements Serializable {
     private final String mName;
     private final String mDescription;
     private final int mSortOrder;
+    private int mStatus;
 
-    public Task(long id, String name, String description, int sortOrder) {
+    public Task(long id, String name, String description, int sortOrder, int status) {
         this.m_Id = id;
         mName = name;
         mDescription = description;
         mSortOrder = sortOrder;
+        mStatus = status;
     }
 
     public long getId() {
@@ -41,13 +43,22 @@ class Task implements Serializable {
         this.m_Id = id;
     }
 
+    public void setStatus(int status) {
+        this.mStatus = status;
+    }
+
+    public int getStatus() {
+        return this.mStatus;
+    }
+
     @Override
     public String toString() {
         return "Task{" +
                 "m_Id=" + m_Id +
                 ", mName='" + mName + '\'' +
                 ", mDescription='" + mDescription + '\'' +
-                ", mSortOrder=" + mSortOrder +
+                ", mSortOrder=" + mSortOrder + '\'' +
+                ", mStatus=" + mStatus +
                 '}';
     }
 }

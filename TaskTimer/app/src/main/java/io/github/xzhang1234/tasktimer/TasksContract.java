@@ -20,10 +20,16 @@ public class TasksContract {
         public static final String TASKS_NAME = "Name";
         public static final String TASKS_DESCRIPTION = "Description";
         public static final String TASKS_SORTORDER = "SortOrder";
+        public static final String TASKS_STATUS = "Status";
 
         private Columns() {
             // private constructor to prevent instantiation
         }
+    }
+
+    public enum TaskStatus {
+        UNFINISHED,
+        FINISHED
     }
 
     public static final Uri CONTENT_URI = Uri.withAppendedPath(CONTENT_AUTHORITY_URI, TABLE_NAME);

@@ -129,6 +129,7 @@ public class AddEditActivityFragment extends Fragment {
                             values.put(TasksContract.Columns.TASKS_NAME, mNameTextView.getText().toString());
                             values.put(TasksContract.Columns.TASKS_DESCRIPTION, mDescriptionTextView.getText().toString());
                             values.put(TasksContract.Columns.TASKS_SORTORDER, so);
+                            values.put(TasksContract.Columns.TASKS_STATUS, 0);
                             contentResolver.insert(TasksContract.CONTENT_URI, values);
                         }
                         break;

@@ -1,5 +1,7 @@
 package io.github.xzhang1234.tasktimer;
 
+import android.content.ContentResolver;
+import android.content.ContentValues;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.database.Cursor;
@@ -61,6 +63,8 @@ public class MainActivity extends AppCompatActivity implements CursorRecyclerVie
                 taskEditRequest(null);
                 break;
             case R.id.menumain_showFinished:
+                Intent intent = new Intent(this, ListFinishedActivity.class);
+                startActivity(intent);
                 break;
             case R.id.menumain_sort_by_creating_time:
                 editor = getApplicationContext().getSharedPreferences("Pref", MODE_PRIVATE).edit();
@@ -109,6 +113,23 @@ public class MainActivity extends AppCompatActivity implements CursorRecyclerVie
         dialog.setArguments(args);
         dialog.show(getFragmentManager(), null);
     }
+
+    @Override
+    public void onFinishClick(Task task) {
+        Log.d(TAG, "onFinishClick: starts");
+
+        //update task status
+        ContentResolver contentResolver = this.getContentResolver();
+        ContentValues values = new ContentValues();
+        values.put(TasksContract.Columns.TASKS_STATUS, 1);
+        if(values.size() != 0) {
+            Log.d(TAG, "onClick: updating task");
+            contentResolver.update(TasksContract.buildTaskUri(task.getId()), values, null, null);
+        }
+
+        Log.d(TAG, "onFinishClick: ends");
+    }
+
 
     private void taskEditRequest(Task task) {
         Log.d(TAG, "taskEditRequest: starts");

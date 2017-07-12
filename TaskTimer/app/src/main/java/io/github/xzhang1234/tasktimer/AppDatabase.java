@@ -47,7 +47,8 @@ public class AppDatabase extends SQLiteOpenHelper {
                 + TasksContract.Columns._ID + " INTEGER PRIMARY KEY NOT NULL, "
                 + TasksContract.Columns.TASKS_NAME + " TEXT NOT NULL, "
                 + TasksContract.Columns.TASKS_DESCRIPTION + " TEXT, "
-                + TasksContract.Columns.TASKS_SORTORDER + " INTEGER);";
+                + TasksContract.Columns.TASKS_SORTORDER + " INTEGER,"
+                + TasksContract.Columns.TASKS_STATUS + " INTEGER);";
         Log.d(TAG, sSQL);
         db.execSQL(sSQL);
 

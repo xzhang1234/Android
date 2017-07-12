@@ -15,13 +15,19 @@
     <string name="addedit_button_save">Save</string>
     <string name="title_activity_add_edit">AddEditActivity</string>
     <string name="instructions_heading">Instructions</string>
-    <string name="instructions">Use the add button (+) in the toolbar above to create new tasks.\n\nTasks with lower sort orders will be placed higher up the list. Tasks with the same sort order will be sorted alphabetically.\n\nTapping a task will start the timer for that task (and will stop the timer for any previous task that was being timed). \n\nEach task has Edit and Delete buttons if you want to change the details or remove the task.</string>
+    <string name="instructions">Use the add button (+) in the toolbar above to create new tasks. 0 is the highest priority.
+        Each task has edit, delete, finish buttons to update, delete task, or mark the task as finished.
+        \n\nUse the checked button (v) in the toolbar above to view all finished tasks.
+        Each task has restore and delete buttons to mark the task as unfinished or delete task.
+        \n\nUse the sort button in the toolbar above to sort tasks. </string>
     <string name="ok">OK</string>
     <string name="cancel">Cancel</string>
     <string name="deldiag_positive_caption">Delete</string>
-    <string name="deldiag_message">Are you sure that you want to delete task %1$s?</string>
+    <string name="deldiag_message">Are you sure that you want to delete unfinished task %1$s?</string>
     <string name="menutitle_sort">sort</string>
     <string name="menutitle_sort_by_name">Sort by Name</string>
     <string name="menutitle_sort_by_priority">Sort by Priority</string>
     <string name="menutitle_sort_by_creating_time">Sort by Creating Time</string>
+    <string name="title_activity_list_finished">ListFinishedActivity</string>
+    <string name="no_finished_task">"No finished tasks"</string>
 </resources>

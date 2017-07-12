@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/tli_name_finished"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:gravity="left|center_vertical"
+        android:textColor="?android:attr/textColorPrimary"
+        android:textSize="22sp"
+        android:textStyle="normal|bold"
+        tools:text="Task"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="8dp"
+        android:layout_marginLeft="8dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@+id/tli_priority_finished"
+        android:layout_marginRight="8dp"
+        app:layout_constraintHorizontal_bias="0.0" />
+
+    <TextView
+        android:id="@+id/tli_description_finished"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:textColor="?android:attr/textColorSecondary"
+        tools:text="Write courses notes and video for the TaskTimer Application."
+        tools:layout_editor_absoluteX="2dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintTop_toBottomOf="@+id/tli_name_finished" />
+
+
+    <TextView
+        android:id="@+id/tli_priority_finished"
+        android:layout_width="40dp"
+        android:layout_height="0dp"
+        android:gravity="center_vertical"
+        android:textAlignment="center"
+        android:textSize="22sp"
+        android:textStyle="normal|bold"
+        tools:text="Priority"
+        app:layout_constraintRight_toLeftOf="@+id/tli_restore_finished"
+        android:layout_marginRight="8dp"
+        app:layout_constraintTop_toTopOf="@+id/tli_restore_finished"
+        android:layout_marginTop="0dp"
+        app:layout_constraintBottom_toBottomOf="@+id/tli_restore_finished"
+        android:layout_marginBottom="0dp" />
+
+    <ImageButton
+        android:id="@+id/tli_restore_finished"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        app:srcCompat="@android:drawable/ic_menu_revert"
+        app:layout_constraintRight_toLeftOf="@+id/tli_delete_finished"
+        android:layout_marginRight="8dp"
+        app:layout_constraintBottom_toBottomOf="@+id/tli_delete_finished"
+        android:layout_marginBottom="0dp"
+        app:layout_constraintTop_toTopOf="@+id/tli_delete_finished"
+        android:layout_marginTop="0dp" />
+
+    <ImageButton
+        android:id="@+id/tli_delete_finished"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        app:srcCompat="@android:drawable/ic_menu_delete"
+        android:layout_marginRight="8dp"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="8dp" />
+
+
+</android.support.constraint.ConstraintLayout>

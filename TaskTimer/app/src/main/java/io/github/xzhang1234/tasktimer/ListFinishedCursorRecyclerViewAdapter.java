@@ -6,52 +6,48 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.CheckBox;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
 /**
- * Created by xiaoyun on 7/10/17.
+ * Created by xiaoyun on 7/12/17.
  */
 
-class CursorRecyclerViewAdapter extends RecyclerView.Adapter<CursorRecyclerViewAdapter.TaskViewHolder> {
-    private static final String TAG = "CursorRecyclerViewAdapt";
-    private Cursor mCursor;
-
-    private OnTaskClickListener mListener;
+public class ListFinishedCursorRecyclerViewAdapter extends RecyclerView.Adapter<ListFinishedCursorRecyclerViewAdapter.TaskViewHolder> {
+    private static final String TAG = "ListFinishedCursorRecyc";
 
     interface OnTaskClickListener {
-        void onEditClick(Task task);
+        void onRestoreClick(Task task);
         void onDeleteClick(Task task);
-        void onFinishClick(Task task);
     }
 
-    public CursorRecyclerViewAdapter(Cursor cursor, OnTaskClickListener listener) {
-        Log.d(TAG, "CursorRecyclerViewAdapter: Constructor called");
+    private Cursor mCursor;
+    private ListFinishedCursorRecyclerViewAdapter.OnTaskClickListener mListener;
+
+    public ListFinishedCursorRecyclerViewAdapter(Cursor cursor, ListFinishedCursorRecyclerViewAdapter.OnTaskClickListener listener) {
+        Log.d(TAG, "ListFinishedCursorRecyclerViewAdapter: Constructor called");
         mCursor = cursor;
         mListener = listener;
     }
 
     @Override
-    public TaskViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public ListFinishedCursorRecyclerViewAdapter.TaskViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         Log.d(TAG, "onCreateViewHolder: new view requested");
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.task_list_items, parent, false);
-        return new TaskViewHolder(view);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.task_list_items_finished, parent, false);
+        return new ListFinishedCursorRecyclerViewAdapter.TaskViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(TaskViewHolder holder, int position) {
+    public void onBindViewHolder(ListFinishedCursorRecyclerViewAdapter.TaskViewHolder holder, int position) {
         Log.d(TAG, "onBindViewHolder: starts");
 
         if((mCursor == null) || (mCursor.getCount() == 0)) {
             Log.d(TAG, "onBindViewHolder: providing instructions");
-            holder.name.setText(R.string.instructions_heading);
+            holder.name.setText(R.string.no_finished_task);
             holder.priority.setVisibility(View.GONE);
-            holder.description.setText(R.string.instructions);
-            holder.editButton.setVisibility(View.GONE);
+            holder.description.setVisibility(View.GONE);
+            holder.restoreButton.setVisibility(View.GONE);
             holder.deleteButton.setVisibility(View.GONE);
-            holder.checkBox.setVisibility(View.GONE);
-
         } else {
             if(!mCursor.moveToPosition(position)) {
                 throw new IllegalStateException("Couldn't move cursor to position " + position);
@@ -66,28 +62,23 @@ class CursorRecyclerViewAdapter extends RecyclerView.Adapter<CursorRecyclerViewA
             holder.name.setText(task.getName());
             holder.priority.setVisibility(View.VISIBLE);
             holder.priority.setText(String.valueOf(task.getSortOrder()));
+            holder.description.setVisibility(View.VISIBLE);
             holder.description.setText(task.getDescription());
-            holder.editButton.setVisibility(View.VISIBLE);
+            holder.restoreButton.setVisibility(View.VISIBLE);
             holder.deleteButton.setVisibility(View.VISIBLE);
-            holder.checkBox.setVisibility(View.VISIBLE);
 
             View.OnClickListener buttonListener = new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
                     switch(view.getId()) {
-                        case R.id.tli_edit:
+                        case R.id.tli_restore_finished:
                             if(mListener != null) {
-                                mListener.onEditClick(task);
+                                mListener.onRestoreClick(task);
                             }
                             break;
-                        case R.id.tli_delete:
+                        case R.id.tli_delete_finished:
                             if(mListener != null) {
                                 mListener.onDeleteClick(task);
-                            }
-                            break;
-                        case R.id.tli_finished:
-                            if(mListener != null) {
-                                mListener.onFinishClick(task);
                             }
                             break;
 
@@ -98,9 +89,8 @@ class CursorRecyclerViewAdapter extends RecyclerView.Adapter<CursorRecyclerViewA
                 }
             };
 
-            holder.editButton.setOnClickListener(buttonListener);
+            holder.restoreButton.setOnClickListener(buttonListener);
             holder.deleteButton.setOnClickListener(buttonListener);
-            holder.checkBox.setOnClickListener(buttonListener);
         }
 
     }
@@ -148,24 +138,20 @@ class CursorRecyclerViewAdapter extends RecyclerView.Adapter<CursorRecyclerViewA
         TextView name = null;
         TextView priority = null;
         TextView description = null;
-        ImageButton editButton = null;
+        ImageButton restoreButton = null;
         ImageButton deleteButton = null;
-        ImageButton checkBox = null;
 
         public TaskViewHolder(View itemView) {
             super(itemView);
             Log.d(TAG, "TaskViewHolder: starts");
 
-            this.name = (TextView) itemView.findViewById(R.id.tli_name);
-            this.priority = (TextView) itemView.findViewById(R.id.tli_priority);
-            this.description = (TextView) itemView.findViewById(R.id.tli_description);
-            this.editButton = (ImageButton) itemView.findViewById(R.id.tli_edit);
-            this.deleteButton = (ImageButton) itemView.findViewById(R.id.tli_delete);
-            this.checkBox = (ImageButton) itemView.findViewById(R.id.tli_finished);
+            this.name = (TextView) itemView.findViewById(R.id.tli_name_finished);
+            this.priority = (TextView) itemView.findViewById(R.id.tli_priority_finished);
+            this.description = (TextView) itemView.findViewById(R.id.tli_description_finished);
+            this.restoreButton = (ImageButton) itemView.findViewById(R.id.tli_restore_finished);
+            this.deleteButton = (ImageButton) itemView.findViewById(R.id.tli_delete_finished);
         }
     }
-
-
-
 }
+
 

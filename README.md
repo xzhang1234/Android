@@ -46,7 +46,7 @@ Mark task2 and task3 as finished:
 Delete task:   
 <img src="https://github.com/xzhang1234/Android/blob/master/Demo/task10.png" width="200"/>  
 Landscape mode:  
-<img src="https://github.com/xzhang1234/Android/blob/master/Demo/task11.png" width="200"/>  
+<img src="https://github.com/xzhang1234/Android/blob/master/Demo/task11.png" height="200"/>  
 
 - The main purpose of developing this app is to learn and master:  
   1. How to use SQLite

@@ -29,6 +29,31 @@ App3: Flickr Browser
   4. Interaction of activities
   5. How to use SearchView
   
+App4: Task Timer
+Instruction page when no task:
+<img src="https://github.com/xzhang1234/Android/blob/master/Demo/task1.png" width="200"/>
+Add/Edit task activity:
+<img src="https://github.com/xzhang1234/Android/blob/master/Demo/task2.png" width="200"/>
+Finish adding tasks:
+<img src="https://github.com/xzhang1234/Android/blob/master/Demo/task3.png" width="200"/>
+<img src="https://github.com/xzhang1234/Android/blob/master/Demo/task4.png" width="200"/>
+Sort tasks:
+<img src="https://github.com/xzhang1234/Android/blob/master/Demo/task5.png" width="200"/>
+<img src="https://github.com/xzhang1234/Android/blob/master/Demo/task6.png" width="200"/>
+Finish tasks:
+<img src="https://github.com/xzhang1234/Android/blob/master/Demo/task7.png" width="200"/>
+<img src="https://github.com/xzhang1234/Android/blob/master/Demo/task8.png" width="200"/>
+Delete task:
+<img src="https://github.com/xzhang1234/Android/blob/master/Demo/task9.png" width="200"/>
+<img src="https://github.com/xzhang1234/Android/blob/master/Demo/task10.png" width="200"/>
+Landscape mode:
+<img src="https://github.com/xzhang1234/Android/blob/master/Demo/task11.png" width="200"/>
+
+- The main purpose of developing this app is to learn and master:  
+  1. How to use SQLite
+  2. How to use Content Provider
+  3. How to use CursorLoader
+
 Reference
 1. Difference between Service, Async Task and Thread  
 https://stackoverflow.com/questions/3264383/difference-between-service-async-task-thread   

@@ -1,13 +1,6 @@
 This repository lists the apps wrote and learned by following this Udemy course, https://www.udemy.com/master-android-7-nougat-java-app-development-step-by-step
 
-App1: Calculator  
-- A very basic calculator only supports num1 +/-/* num2 and num1/num2. 
-- The main purpose of developing this app is to learn and master:
-  1. How to align UI element in a constrained layout 
-  2. How to refer an UI element in java code
-  3. How to implement, add, use onClickListener  
-  
-App2: Top10Downloader  
+App1: Top10Downloader  
 <img src="https://github.com/xzhang1234/Android/blob/master/Demo/Screenshot_1499553826.png" width="200"/>
 - An app which displays the Top 10 downloaded movies in Apple store. It downloads an xml file from a link provided by Apple, then parses the xml file to get the name, artist and other attributes of Top 10 downloaded movies, finally displays the Top 10 downloaded movies in a ListView. 
 - The main purpose of developing this app is to learn and master:  
@@ -16,7 +9,7 @@ App2: Top10Downloader
   3. How to parse XML file
   4. How to use ListView with viewHolder design pattern  
   
-App3: Flickr Browser   
+App2: Flickr Browser   
 <img src="https://github.com/xzhang1234/Android/blob/master/Demo/Screenshot_1499552518.png" width="200"/>
 <img src="https://github.com/xzhang1234/Android/blob/master/Demo/Screenshot_1499552930.png" width="200"/>
 <img src="https://github.com/xzhang1234/Android/blob/master/Demo/Screenshot_1499552537.png" width="200"/>
@@ -29,7 +22,7 @@ App3: Flickr Browser
   4. Interaction of activities
   5. How to use SearchView
   
-App4: Task Timer  
+App3: To Do List  
 Instruction page when no task:  
 <img src="https://github.com/xzhang1234/Android/blob/master/Demo/task1.png" width="200"/>  
 Add/Edit task activity:  
